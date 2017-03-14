@@ -20,14 +20,15 @@ brickSymbol = function(symbol) {
 
 function drawPyramid() {
 
-    // TODO: draw a pyramid of the height and with the symbol selected
     // first, clear the old content
     document.getElementById("pyramid").innerHTML = "";
 
     height = pyrHeight
-    symbol = bricktype;
-    console.log(height);
-    console.log(symbol);
+    if (bricktype == "") {
+        symbol = "#";
+    } else {
+        symbol = bricktype;
+    }
 
     // for each row....
     for (var row = 0; row < height; row++) {
