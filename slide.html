@@ -2,9 +2,27 @@
 <html>
     <head>
         <meta charset="utf-8">
+        <style>
+        #pyramid {
+            line-height: 0;
+            font-size: 30px;
+        }
+        </style>
         <title>JavaScript Pyramid Slide</title>
     </head>
     <body>
+        Brick Symbol:
+        <select id="select" onchange="brickSymbol(this.value)">
+            <option value="#">#</option>
+            <option value="@">@</option>
+            <option value="X">X</option>
+            <option value="$">$</option>
+        </select>
+        <p>
+        How High?
+        <input type="range" id="height" min="2" max="20" oninput="heightElem(this.value)">
 
+        <div id="pyramid">
     </body>
+    <script type="text/javascript" src="slide.js"></script>
 </html>

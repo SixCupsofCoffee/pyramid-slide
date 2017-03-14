@@ -1,21 +1,54 @@
-var heightElem = document.getElementById("height");
-var brickSymbol = document.getElementById("symbol");
+// set global variables for all functions to access
+pyrHeight = ""
+bricktype = ""
 
-heightElem.oninput = function(event) {
-    // TODO: set the height based on the slider
-
-    // TODO: then draw or redraw the pyramid
-
+heightElem = function(height) {
+    // change pyrHeight variable to changed height
+    pyrHeight = height;
+    drawPyramid()
 }
 
-brickSymbol.onchange = function(event) {
-    // TODO: change the symbol used to build the pyramid
-
-    // TODO: then draw or redraw the pyramid
-
+function showRange(rangeValue) {
+    // TODO: show the height next to the slider
 }
 
-function drawPyramid(height, symbol) {
+brickSymbol = function(symbol) {
+    // set bricktype variable to changed symbol
+    bricktype = symbol;
+    drawPyramid();
+}
+
+function drawPyramid() {
+
     // TODO: draw a pyramid of the height and with the symbol selected
+    // first, clear the old content
+    document.getElementById("pyramid").innerHTML = "";
 
+    height = pyrHeight
+    symbol = bricktype;
+    console.log(height);
+    console.log(symbol);
+
+    // for each row....
+    for (var row = 0; row < height; row++) {
+
+        // figure out number of bricks and spaces
+        var numBricks = row + 2;
+        var numSpaces = height - row - 1;
+
+        // build up a string for this row
+        var rowStr = "";
+        for (var i = 0; i < numSpaces; i++) {
+            var spaceChar = "&nbsp"; // this is the HTML encoding for a space " "
+            rowStr += spaceChar;
+        }
+        for (var i = 0; i < numBricks; i++) {
+            rowStr += symbol;
+        }
+
+        // make a <p> element for this row, and insert it into the #pyramid container
+        rowElem = document.createElement("p");
+        rowElem.innerHTML = rowStr;
+        document.getElementById("pyramid").appendChild(rowElem);
+    }
 }
