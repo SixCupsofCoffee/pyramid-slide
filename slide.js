@@ -5,11 +5,14 @@ bricktype = ""
 heightElem = function(height) {
     // change pyrHeight variable to changed height
     pyrHeight = height;
-    drawPyramid()
+    showRange();
+    drawPyramid();
 }
 
-function showRange(rangeValue) {
+function showRange() {
     // TODO: show the height next to the slider
+    var rangeValue = pyrHeight;
+    document.getElementById("range-text").innerHTML = rangeValue;
 }
 
 brickSymbol = function(symbol) {
@@ -17,6 +20,7 @@ brickSymbol = function(symbol) {
     bricktype = symbol;
     drawPyramid();
 }
+
 
 function drawPyramid() {
 
